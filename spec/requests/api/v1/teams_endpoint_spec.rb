@@ -1,4 +1,4 @@
-RSpec.describe 'api/v1/teams endpoint', type: :request do
+RSpec.describe 'api/v1/teams endpoint', swagger_doc: 'v1/swagger.yaml', type: :request do
   let!(:application) { FactoryBot.create(:platform_application) }
   let!(:token) do
     Doorkeeper::AccessToken.find_or_create_for(application: application,
