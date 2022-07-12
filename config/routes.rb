@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api/docs'
+  mount Rswag::Api::Engine => '/api/docs'
   # See `config/routes/*.rb` to customize these configurations.
   draw "concerns"
   draw "devise"

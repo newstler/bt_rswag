@@ -63,4 +63,7 @@ dump.rdb
 # Ignore locally cloned framework packages.
 /local
 
+# Ignore RSwag API documentation files
+/swagger
+
 # 🚅 add your files to ignore here.
