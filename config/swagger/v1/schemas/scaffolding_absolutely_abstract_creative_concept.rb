@@ -5,6 +5,12 @@ module Swagger
     end
 
     def specs
+      scaffolding_things_disabled? ? nil : base
+    end
+
+    private
+
+    def base
       {
         type: :object,
         properties: {

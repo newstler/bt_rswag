@@ -5,6 +5,12 @@ module Swagger
     end
 
     def specs
+      scaffolding_things_disabled? ? base : base[:properties][:relationships][:properties].merge!(scaffolding_things)
+    end
+
+    private
+
+    def base
       {
         type: :object,
         properties: {
@@ -58,24 +64,27 @@ module Swagger
                     }
                   }
                 }
-              },
-              # unless scaffolding_things_disabled?
-              scaffolding_absolutely_abstract_creative_concepts: {
+              }
+            }
+          }
+        }
+      }
+    end
+
+    def scaffolding_things
+      {
+        scaffolding_absolutely_abstract_creative_concepts: {
+          type: :object,
+          properties: {
+            data: {
+              type: :array,
+              items: {
                 type: :object,
                 properties: {
-                  data: {
-                    type: :array,
-                    items: {
-                      type: :object,
-                      properties: {
-                        id: { type: :string },
-                        type: { type: :string }
-                      }
-                    }
-                  }
+                  id: { type: :string },
+                  type: { type: :string }
                 }
               }
-              # end
             }
           }
         }
